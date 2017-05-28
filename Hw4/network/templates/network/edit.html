@@ -1,0 +1,24 @@
+{% extends "network/profile.html" %}
+
+{% block content %}
+
+<h3 align=center>
+  <form enctype="multipart/form-data" id="edit-form" name="edit-form" method="POST" action="{% url 'edit' %}">
+      {% for i in form %}
+      <div class="form-group">
+          <h4>{{i.label_tag}}</h4>{{i}}
+          <h4>
+                {% for m in message %} {{m}} {% endfor %}
+          <h4>
+      </div>
+      {% endfor %}
+      <div class="form-group">
+          {{message}}
+          <button type="submit" class="btn btn-default">Save</button> </br>
+          <a href="{% url 'profile' Users.username %}" class="btn btn-default">Cancel</a>
+      </div>
+      {% csrf_token %}
+  </form>
+</h3>
+
+{% endblock %}

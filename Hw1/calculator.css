@@ -1,0 +1,42 @@
+body {
+	width: 480px;
+}
+
+.show {
+	width: 420px;
+	height: 120px;
+	font-family: verdana;
+	font-size: 70px;
+	border: 2px solid black;
+	text-align: right;
+	margin: 10px 10px 50px 10px;
+	border-radius: 0px;
+	background-color: lightgreen;
+}
+
+button {
+	margin: 10px;
+	width: 90px;
+	height: 90px;
+	background-color: lightgreen;
+	border: 2px solid black;
+	color: black;
+	display: inline-block;
+	padding: 36px 32px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 50px;
+	float: left;
+	transition-duration: 0.3s;
+	cursor: pointer;
+	border-radius: 20px;
+}
+
+.operator {
+	background-color: orange;
+}
+
+.zero{
+	margin-left: 120px;
+	width:90px;
+}

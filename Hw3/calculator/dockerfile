@@ -1,0 +1,18 @@
+FROM ubuntu:16.04
+# Install packages
+RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+RUN apt-get update && \
+    apt-get -y install nginx
+
+# Open the 15619 ports
+EXPOSE 15619
+
+# index.html must be in the current directory
+# or must be referred to using an absolute path
+ADD index.html /var/www/html
+
+# Define the command which runs when the container starts
+CMD ["cat /var/www/html/index.html"]
+
+# Use bash as the container's entry point
+CMD ["nginx"]

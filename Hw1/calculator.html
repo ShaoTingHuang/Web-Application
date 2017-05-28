@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>calculator</title>
+	<meta charset="utf-8">
+	<link type="text/css" rel="stylesheet" href="calculator.css">
+	<script src="calculator.js"></script>
+</head>
+
+<body>
+
+	<div class="header">
+		<input id="display" type="text" class="show" value = "0">
+	</div>
+
+	<div class="button">
+		<button id = "7" onclick="displays(7);">7</button>
+		<button id = "8" onclick="displays(8);">8</button>
+		<button id = "9" onclick="displays(9);">9</button>
+		<button class="operator" onclick="plus();"> &plus; </button>
+		<button id = "4" onclick="displays(4);">4</button>
+		<button id = "5" onclick="displays(5);">5</button>
+		<button id = "6" onclick="displays(6);">6</button>
+		<button class="operator" onclick="minus();"> &minus; </button>
+		<br/>
+		<button id = "1" onclick="displays(1);">1</button>
+		<button id = "2" onclick="displays(2);">2</button>
+		<button id = "3" onclick="displays(3);">3</button>
+		<button class="operator" onclick="times();"> &times; </button>
+		<br/>
+		<button class="zero" id = "0" onclick="displays(0);">0</button>
+		<button class="operator" onclick="equals();"> &equals; </button>
+		<button class="operator" onclick="divides();"> &divide; </button>
+	</div>
+
+
+
+</body>
+
+</html>

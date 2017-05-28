@@ -1,0 +1,21 @@
+{% extends "network/base.html" %}
+
+{% block register %}
+    {% for error in errors %}
+        <p style="color: red">
+            {{ error }}
+        </p>
+    {% endfor %}
+
+    <div class="title">
+      <h3> Please fill in the form below to register. </h3>
+    </div>
+
+    <form method="post" action="{% url 'register' %}">
+        <table>
+            {{form}}
+        </table>
+        <input type="submit" value="Register" />
+        {% csrf_token %}
+    </form>
+{% endblock %}

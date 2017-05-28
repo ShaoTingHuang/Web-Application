@@ -1,0 +1,23 @@
+{% extends "network/profile.html" %}
+
+{% block content %}
+  {% for item in items %}
+  <div class="w3-card-4 w3-margin w3-white">
+    <div class="w3-container w3-padding-8">
+        {% if user == look_user %}
+          <form class="delete-form"
+                action="{% url 'delete' item.id item.user %}"
+                method="POST">
+              <input type="submit" value="X">
+              {% csrf_token %}
+          </form>
+        {% endif %}
+        <span class="details">
+          <h3><p>{{item.user}}</p>
+          <span class="w3-opacity">&nbsp&nbsp{{item.time}}</span></h3>
+          <h4> {{item.text}} </h4>
+        </span>
+    </div>
+  </div>
+  {% endfor %}
+{% endblock %}

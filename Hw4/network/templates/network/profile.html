@@ -1,0 +1,57 @@
+{% extends "network/base.html" %}
+
+{% block content %}
+    <div class="w3-row-padding w3-padding-16 w3-center">
+        <div class="w3-quarter">
+         <img src="{% url 'photo' profile.user.username %}"  width="400px"> <br>
+        </div>
+
+       <div class="w3-quarter">
+        <h3>Firstname: {{profile.Firstname}}</h3>
+        <h3>Lastname: {{profile.Lastname}}</h3>
+        <h3>Age: {{profile.Age}} </h3>
+
+        {% if user == look_user %}
+        <h3>  <a class="btn btn-default" href="{% url 'edit' %}">edit</a><br> </h3>
+        {% elif followed == 0 %}
+        <a class="btn btn-default" href="{% url 'follow' profile.user.username %}">Follow</a><br>
+        {% else %}
+        <a class="btn btn-default" href="{% url 'unfollow' profile.user.username %}">Unfollow</a><br>
+        {% endif %}
+
+      </div>
+    </div>
+
+    <div class="w3-card-4 w3-margin rgb(179, 179, 179)">
+      <div class="w3-container w3-padding-8">
+      <h3>Bio: </br>
+        {{profile.Short_bio}}</h3>
+      </div>
+    </div>
+
+      <br><br><br>
+
+
+        {% for item in items %}
+          <div class="w3-card-4 w3-margin w3-white">
+            <div class="w3-container w3-padding-8">
+              <li>
+                {% if user == look_user %}
+                  <form class="delete-form"
+                        action="{% url 'delete' item.id item.user %}"
+                        method="POST">
+                      <input type="submit" value="X">
+                      {% csrf_token %}
+                  </form>
+                {% endif %}
+                <span class="details">
+                  <h3><p>{{item.user}}</p>
+                  <span class="w3-opacity">&nbsp&nbsp{{item.time}}</span></h3>
+                  <h4> {{item.text}} </h4>
+                </span>
+              </li>
+            </div>
+          </div>
+        {% endfor %}
+
+{% endblock %}
